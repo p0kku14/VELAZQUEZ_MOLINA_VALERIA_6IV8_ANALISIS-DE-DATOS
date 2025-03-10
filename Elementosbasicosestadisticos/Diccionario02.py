@@ -8,6 +8,13 @@ def estadistica_notas(notas):
     notas.std()], index=['Min' , 'Max' , 'Media' , 'Desviacion Estandar'])
     return estadisticas
 
-notas = {'Juan': 9, 'Juanita' : 7 ,'Pedro' : 6.6 ,'Fabian' : 8.5 ,
+def aprobados(notas):
+    notas = pd.Series(notas)
+    return notas [notas >= 6].sort_values(ascending=False)
+
+
+notas = {'Juan': 5.9, 'Juanita' : 5 ,'Pedro' : 6.6 ,'Fabian' : 8.5 ,
          'Maximialno' : 7.5 ,'Sandra' : 9.8 ,'Rosaro' : 9 ,}
 print(estadistica_notas(notas))
+
+print(aprobados(notas))
